@@ -1,15 +1,15 @@
 
 import streamlit as st
 import joblib
-import numpy as np
+import pandas as pd
 
 # Model laden
-model = joblib.load("logistic_model_offerte.pkl")
+model = joblib.load("logistic_model_offerte.joblib")
 
 st.title("Offerte Conversie Voorspeller")
 
 st.markdown("""
-Voer hier de gegevens van een offerte in om te voorspellen of deze waarschijnlijk geconverteerd wordt.
+Voer hieronder de gegevens van een offerte in om te voorspellen of deze waarschijnlijk geconverteerd wordt.
 """)
 # Invoervelden
 totaal = st.number_input("Totaalbedrag (€)", min_value=0.0, step=100.0)
@@ -28,7 +28,6 @@ if st.button("Voorspel conversie"):
         "Verkoper": [verkoper],
         "Rang": [rang]
     }
-    import pandas as pd
     input_df = pd.DataFrame(input_data)
     prediction = model.predict(input_df)[0]
     prob = model.predict_proba(input_df)[0][1]
