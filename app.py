@@ -4,7 +4,7 @@ import joblib
 import numpy as np
 
 # Model laden
-    model = joblib.load("logistic_model_offerte.pkl")
+model = joblib.load("logistic_model_offerte.pkl")
 
 st.title("Offerte Conversie Voorspeller")
 
