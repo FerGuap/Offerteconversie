@@ -1,11 +1,10 @@
 
 import streamlit as st
-import pickle
+import joblib
 import numpy as np
 
 # Model laden
-with open("logistic_model_offerte.pkl", "rb") as f:
-    model = pickle.load(f)
+    model = joblib.load("logistic_model_offerte.pkl")
 
 st.title("Offerte Conversie Voorspeller")
 
